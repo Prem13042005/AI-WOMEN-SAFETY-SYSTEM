@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard | Women Safety System</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- Lottie animation support -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+
+  <!-- Dashboard Navbar -->
+  <header class="dashboard-navbar">
+    <h1>Emergency Dashboard</h1>
+    <nav>
+      <a href="#" id="sosLink">🔴 SOS</a>
+      <a href="#" onclick="openProfileModal()">Profile</a>
+      <a href="#" onclick="confirmLogout()">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <section class="dashboard-container">
+    <div class="lottie-alert">
+      <lottie-player
+        src="/assets/lottie/Data_Dashboard.json"
+        background="transparent"
+        speed="1"
+        style="width: 100%; max-width: 300px;"
+        loop
+        autoplay
+      ></lottie-player>
+    </div>
+
+    <div class="dashboard-controls">
+      <h2>Hello, <span id="username">User</span> 👋</h2>
+      <p>You're safe. Tap below in case of emergency.</p>
+
+      <button id="sosBtn">🚨 Trigger SOS</button>
+      <button id="locBtn">📍 Share Location</button>
+      <button onclick="predictDanger()">📡 Predict Danger Level</button>
+
+      <div id="locationDisplay"></div>
+      <div id="dangerResult" class="prediction-box"></div>
+    </div>
+  </section>
+
+  <!-- Profile Modal -->
+  <div id="profileModal" class="modal">
+    <div class="modal-content">
+      <h3>Update Emergency Contacts</h3>
+      <form id="contactForm">
+        <input type="text" name="contact_name" placeholder="Contact Name" required>
+        <input type="text" name="contact_number" placeholder="Phone Number" required>
+        <button type="submit">Save Contact</button>
+      </form>
+      <button onclick="closeProfileModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- Logout Confirmation Modal -->
+  <div id="logoutModal" class="modal">
+    <div class="modal-content">
+      <h3>Confirm Logout</h3>
+      <p>Are you sure you want to log out?</p>
+      <div class="modal-buttons">
+        <button onclick="proceedLogout()">Yes, Logout</button>
+        <button onclick="closeLogoutModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="/js/main.js"></script>
+
+  <!-- Optional: Initialize user from localStorage -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const name = localStorage.getItem('username') || 'User';
+      document.getElementById('username').innerText = name;
+    });
+  </script>
+</body>
+</html>

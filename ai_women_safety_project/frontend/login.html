@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Women Safety System</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- Lottie animation support -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+
+  <!-- Login Section -->
+  <section class="form-container">
+    <h2>Welcome Back</h2>
+
+    <!-- Lottie Animation -->
+    <div class="lottie-box">
+      <lottie-player
+        src="/assets/lottie/Login.json"
+        background="transparent"
+        speed="1"
+        style="width: 100%; max-width: 300px; margin: auto;"
+        loop
+        autoplay
+      ></lottie-player>
+    </div>
+
+    <form id="loginForm">
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <div id="loginMsg"></div>
+    <p>Don't have an account? <a href="/register.html">Register here</a></p>
+  </section>
+
+  <!-- JS -->
+  <script src="/js/main.js"></script>
+
+</body>
+</html>

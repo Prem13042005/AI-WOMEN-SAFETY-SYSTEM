@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | Women Safety System</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- Register Section -->
+  <section class="form-container">
+    <h2>Create Your Account</h2>
+    <form id="registerForm">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="text" name="phone" placeholder="Mobile Number (optional)" />
+      <input type="password" name="password" placeholder="Password" required />
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required />
+      <button type="submit">Register</button>
+    </form>
+    <div id="registerMsg"></div>
+    <p>Already have an account? <a href="/login.html">Login here</a></p>
+  </section>
+
+  <!-- JS -->
+  <script src="/js/main.js" defer></script>
+
+  <!-- Password Match Check -->
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function (e) {
+      const pwd = this.password.value;
+      const cpwd = this.confirm_password.value;
+      if (pwd !== cpwd) {
+        e.preventDefault();
+        alert("❌ Passwords do not match!");
+      }
+    });
+  </script>
+
+</body>
+</html>
